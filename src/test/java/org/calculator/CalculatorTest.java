@@ -41,6 +41,13 @@ class CalculatorTest {
     public void testCustomDelimiter() {
         assertEquals(3, new Calculator().addition("//;\n1;2"));
     }
+    @Test
+    public void testNegativeNumbersThrowException() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            new Calculator().addition("1, 3,-4");
+        });
+        assertTrue(exception.getMessage().contains("-4"));
+    }
 
 
 
