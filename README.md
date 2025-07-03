@@ -24,3 +24,15 @@ test2
         assertEquals(4,new Calculator().addition("4"));
     }
 ```
+
+## test 3 : sum of two passed number 
+
+I have created a test case for adding 2 numbers which is comma seperated and the calculator will return the sum of this two numbers.
+
+```java
+ @Test
+    public void testDoubleNumbersString(){
+        assertEquals(9,new Calculator().addition("4,5"));
+        assertEquals(4,new Calculator().addition("1,3"));
+    }
+```
