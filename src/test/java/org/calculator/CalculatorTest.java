@@ -31,6 +31,11 @@ class CalculatorTest {
         assertEquals(7,new Calculator().addition("4\n2,1"));
         assertEquals(15,new Calculator().addition("11\n4"));
     }
+    @Test
+    public void testNewLineWithWhiteSpaceNumberString(){
+        assertEquals(7,new Calculator().addition("4\n2, 1"));
+        assertEquals(15,new Calculator().addition("11\n 4"));
+    }
 
 
 }

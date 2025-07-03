@@ -61,3 +61,14 @@ public void testNewLineNumberString(){
     assertEquals(15,new Calculator().addition("11\n4"));
 }
 ```
+
+## test 6 : String input may have white space between the separators 
+
+I have created a test case for a input string which may have white space around the separator , Code have to be continues the sum with that white space also. 
+```java
+@Test
+public void testNewLineWithWhiteSpaceNumberString(){
+    assertEquals(7,new Calculator().addition("4\n2, 1"));
+    assertEquals(15,new Calculator().addition("11\n 4"));
+}
+```
