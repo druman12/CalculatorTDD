@@ -36,3 +36,16 @@ I have created a test case for adding 2 numbers which is comma seperated and the
         assertEquals(4,new Calculator().addition("1,3"));
     }
 ```
+
+## test 4 : sum the multiple numbers comma separated
+
+above given code is also work for this test case , In above one only 2 numbers are there now the numbers are increased but the logically code is correct for this also.
+
+```java
+@Test
+    public void testMultipleNumbersString(){
+        assertEquals(17,new Calculator().addition("4,5,7,1"));
+        assertEquals(6,new Calculator().addition("1,3,0,2"));
+        assertEquals(11,new Calculator().addition("11,,"));
+    }
+```

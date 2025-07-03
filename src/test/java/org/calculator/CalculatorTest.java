@@ -20,5 +20,12 @@ class CalculatorTest {
         assertEquals(4,new Calculator().addition("1,3"));
         assertEquals(1,new Calculator().addition("1,"));
     }
+    @Test
+    public void testMultipleNumbersString(){
+        assertEquals(17,new Calculator().addition("4,5,7,1"));
+        assertEquals(6,new Calculator().addition("1,3,0,2"));
+        assertEquals(11,new Calculator().addition("11,,"));
+    }
+
 
 }
