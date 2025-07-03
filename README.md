@@ -72,3 +72,14 @@ public void testNewLineWithWhiteSpaceNumberString(){
     assertEquals(15,new Calculator().addition("11\n 4"));
 }
 ```
+
+## test 7 : Support different delimiters
+
+There is a test case for which I passed first delimiters then the numbers with separated by that delimiters. let say a delimiters is ";" or "&" etc.
+
+```java
+@Test
+public void testCustomDelimiter() {
+    assertEquals(3, new Calculator().addition("//&\n1&2"));
+}
+```
