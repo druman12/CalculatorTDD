@@ -53,6 +53,11 @@ class CalculatorTest {
         assertEquals(3, new Calculator().addition("3,1003"));
         assertEquals(1002, new Calculator().addition("2,1000")); // 1000 is included
     }
+    @Test
+    public void testDelimiterOfAnyLength() {
+        assertEquals(6, new Calculator().addition("//[***&]\n1***&2***&3"));
+    }
+
 
 
 
