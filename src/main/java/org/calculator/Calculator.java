@@ -28,8 +28,12 @@ public class Calculator {
             String trimmed = num.trim();
             if (!trimmed.isEmpty()) {
                 int n = Integer.parseInt(trimmed);
-                if (n < 0) negatives.add(n);
-                sum += n;
+                if (n < 0){
+                    negatives.add(n);
+                }else if (n <= 1000) {
+                    sum += n;
+                }
+                // numbers > 1000 are ignored
             }
         }
         if (!negatives.isEmpty()) {
