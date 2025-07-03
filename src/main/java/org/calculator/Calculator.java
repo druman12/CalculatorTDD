@@ -15,11 +15,12 @@ public class Calculator {
         if (numbers.startsWith("//[")) {
             int newlineIndex = numbers.indexOf("\n");
             //cover the part of string from index 2 to new line.
-            String delimiterPart = numbers.substring(2, newlineIndex); // e.g. [***]
+            String delimiterPart = numbers.substring(2, newlineIndex); // e.g. [*][%] or [**][%%]
             // content is now from new line to end
             String content = numbers.substring(newlineIndex + 1);
 
-            delimiter = Pattern.quote(delimiterPart.substring(1, delimiterPart.length() - 1)); // remove square brackets
+            // Extract multiple delimiters from brackets
+            delimiter = extractMultipleDelimiters(delimiterPart);
             numbers = content;
         }
         else  if (numbers.startsWith("//")) {        // specified delimiter always start with //
@@ -34,7 +35,6 @@ public class Calculator {
         int sum = 0;
 
         List<Integer> negatives = new ArrayList<>();
-
 
         for (String num : nums) {
             String trimmed = num.trim();
@@ -52,5 +52,36 @@ public class Calculator {
             throw new IllegalArgumentException("Negative numbers not allowed: " + negatives);
         }
         return sum;
+    }
+
+    /**
+     * Extracts multiple delimiters from bracket format like [*][%] or [**][%%]
+     * Returns a regex pattern that can split on any of these delimiters
+     */
+    private String extractMultipleDelimiters(String delimiterPart) {
+        List<String> delimiters = new ArrayList<>();
+        int i = 0;
+
+        while (i < delimiterPart.length()) {
+            if (delimiterPart.charAt(i) == '[') {
+                // Find the matching closing bracket
+                int closeBracket = delimiterPart.indexOf(']', i);
+                if (closeBracket != -1) {
+                    // Extract the delimiter between brackets
+                    String delimiter = delimiterPart.substring(i + 1, closeBracket);
+                    // Quote it to escape special regex characters
+                    delimiters.add(Pattern.quote(delimiter));
+                    // Move to the next potential opening bracket
+                    i = closeBracket + 1;
+                } else {
+                    i++;
+                }
+            } else {
+                i++;
+            }
+        }
+
+        // Join all delimiters with OR operator for regex
+        return String.join("|", delimiters);
     }
 }
