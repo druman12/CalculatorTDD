@@ -49,3 +49,15 @@ above given code is also work for this test case , In above one only 2 numbers a
         assertEquals(11,new Calculator().addition("11,,"));
     }
 ```
+
+## test 5 : sum the numbers which are separate with new line also
+
+I have design test case which have new line separated numbers pass as String for addition.
+
+```java
+@Test
+public void testNewLineNumberString(){
+    assertEquals(7,new Calculator().addition("4\n2,1"));
+    assertEquals(15,new Calculator().addition("11\n4"));
+}
+```

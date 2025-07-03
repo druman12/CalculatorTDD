@@ -29,7 +29,7 @@ class CalculatorTest {
     @Test
     public void testNewLineNumberString(){
         assertEquals(7,new Calculator().addition("4\n2,1"));
-        assertEquals(11,new Calculator().addition("11\n,,"));
+        assertEquals(15,new Calculator().addition("11\n4"));
     }
 
 
