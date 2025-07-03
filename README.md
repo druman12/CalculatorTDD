@@ -11,3 +11,16 @@ test1
         assertEquals(0,new Calculator().addition(""));
     }
 ```
+
+## test 2 : single number return it self
+
+Now I have created a test case where if the input is the any single number (0-9) then I want the output as number itself. Fisrt create a test case which not pass by my code of calculator , then I update it and it will work for it now.
+
+test2
+```java
+@Test
+    public void testSingleNumberString(){
+        assertEquals(9,new Calculator().addition("9"));
+        assertEquals(4,new Calculator().addition("4"));
+    }
+```
