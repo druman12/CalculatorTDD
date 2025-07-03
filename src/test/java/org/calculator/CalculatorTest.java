@@ -18,6 +18,7 @@ class CalculatorTest {
     public void testDoubleNumbersString(){
         assertEquals(9,new Calculator().addition("4,5"));
         assertEquals(4,new Calculator().addition("1,3"));
+        assertEquals(1,new Calculator().addition("1,"));
     }
 
 }
