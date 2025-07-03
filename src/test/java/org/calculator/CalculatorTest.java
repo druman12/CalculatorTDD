@@ -48,6 +48,11 @@ class CalculatorTest {
         });
         assertTrue(exception.getMessage().contains("-4"));
     }
+    @Test
+    public void testIgnoreNumbersString() {
+        assertEquals(3, new Calculator().addition("3,1003"));
+        assertEquals(1002, new Calculator().addition("2,1000")); // 1000 is included
+    }
 
 
 

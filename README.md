@@ -97,3 +97,15 @@ public void testNegativeNumbersThrowException() {
     assertTrue(exception.getMessage().contains("-4"));
 }
 ```
+
+## test 9 : Ignore Numbers which are higher then 1000
+
+Just sum the numbers which are less then 1000.if the sum is higher then the 1000 is acceptable but the individual numbers should be lesser then 1000.
+
+```java
+ @Test
+public void testIgnoreNumbersString() {
+    assertEquals(3, new Calculator().addition("3,1003"));
+    assertEquals(1002, new Calculator().addition("2,1000")); // 1000 is included
+}
+```
