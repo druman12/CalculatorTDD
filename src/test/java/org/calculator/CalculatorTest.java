@@ -26,6 +26,11 @@ class CalculatorTest {
         assertEquals(6,new Calculator().addition("1,3,0,2"));
         assertEquals(11,new Calculator().addition("11,,"));
     }
+    @Test
+    public void testNewLineNumberString(){
+        assertEquals(7,new Calculator().addition("4\n2,1"));
+        assertEquals(11,new Calculator().addition("11\n,,"));
+    }
 
 
 }
