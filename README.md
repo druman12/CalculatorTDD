@@ -120,9 +120,19 @@ Supports delimiters enclosed in square brackets like `//[***]\n`. Useful for cle
 ```
 ## test 11 : Multiple Custom Delimiters
 Handles more than one delimiter such as `//[*][%]\n`. All delimiters are used to split numbers.
+“//[*][%]\n1*2%3” == 6.
 ```java
 @Test
 public void testMultipleDelimiters() {
     assertEquals(6, new Calculator().addition("//[*][%]\n1*2%3"));
 }
+```
+## test 12 : Multiple Delimiters with Length > 1
+Allows multiple delimiters, each of any length, like `//[**][%%]\n`.
+“//[**][%%]\n1**2%%3” == 6
+```java
+@Test
+    public void testMultipleDelimitersOfAnyLength() {
+        assertEquals(20, new Calculator().addition("//[**][%%]\n10** 2%% 8"));
+    }
 ```
